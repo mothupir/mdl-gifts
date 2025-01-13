@@ -1,1 +1,12 @@
 <router-outlet />
+
+<div class="border-top-1 py-2 border"></div>
+<div class="flex justify-content-between gap-2">
+    <div class="flex flex-column gap-2 text-xs footer">
+        <div class="flex gap-2"><i class="pi pi-whatsapp"></i> <div class="whatsapp"> WhatsApp</div></div>
+        <div class="flex gap-2"><i class="pi pi-github"></i> <div class="whatsapp"> Github</div></div>
+        <div class="flex gap-2"><i class="pi pi-discord"></i> <div class="whatsapp"> Discord</div></div>
+        <div>&#64;{{year}} - MDL Gifts by Joint Labs. All Rights Reserved.</div>
+    </div>
+    <p-select-button (onChange)="toggleDarkMode()" [(ngModel)]="dark" [options]="modes" size="small" />
+</div>

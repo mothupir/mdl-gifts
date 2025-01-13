@@ -1,0 +1,11 @@
+.border {
+    border-top-color: var(--p-surface-400);
+}
+
+.footer {
+    color: var(--p-surface-500);
+}
+
+.whatsapp {
+    padding-top: 2px;
+}
