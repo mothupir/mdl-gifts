@@ -1,12 +1,48 @@
-<router-outlet />
+<div class="flex flex-column wrapper">
+    <div class="flex justify-content-between mb-2 p-2 border-round-md header" id="header">
+        <div class="flex gap-2 logo">
+            <img src="logo.png" class="image" height="30" />
+            <div class="mt-2 font-bold">MDL Gifts</div>
+        </div>
+        <div class="flex gap-1">
+            <p-button *ngIf="!connected" type="button" (onClick)="showDialog()" label="Sign In" icon="pi pi-sign-in" iconPos="right" size="small" />
+            <p-button *ngIf="connected" (onClick)="toggleSignIn()" label="Sign Out" text severity="danger" icon="pi pi-sign-out" iconPos="right" size="small" />
+            <p-button class="bars" (onClick)="visible = true" icon="pi pi-bars" size="small" severity="secondary" text [style]="{'padding': '7px'}" />
+        </div>
+    </div>
+    <div class="flex mb-2 container">
+        <div class="mr-2 p-2 border-round-md sidebar" id="sidebar">
+            Sidebar
+        </div>
+        <div class="flex flex-column border-round-md p-2 content" id="content">
+            <router-outlet />
+        </div>
+    </div>
+</div>
 
-<div class="border-top-1 py-2 border"></div>
-<div class="flex justify-content-between gap-2">
-    <div class="flex flex-column gap-2 text-xs footer">
-        <div class="flex gap-2"><i class="pi pi-whatsapp"></i> <div class="whatsapp"> WhatsApp</div></div>
+<div class="flex justify-content-between gap-2 border-round-md p-2 footer" id="footer">
+    <div class="flex flex-column gap-2 text-xs">
         <div class="flex gap-2"><i class="pi pi-github"></i> <div class="whatsapp"> Github</div></div>
         <div class="flex gap-2"><i class="pi pi-discord"></i> <div class="whatsapp"> Discord</div></div>
+        <div class="flex gap-2"><i class="pi pi-whatsapp"></i> <div class="whatsapp"> WhatsApp</div></div>
         <div>&#64;{{year}} - MDL Gifts by Joint Labs. All Rights Reserved.</div>
     </div>
     <p-select-button (onChange)="toggleDarkMode()" [(ngModel)]="dark" [options]="modes" size="small" />
 </div>
+
+<p-drawer [(visible)]="visible" (onShow)="showSidebar()">
+    <ng-template #header>
+        <div class="flex gap-2 logo">
+            <img src="logo.png" class="image" height="30" />
+            <div class="mt-2 font-bold">MDL Gifts</div>
+        </div>
+    </ng-template>
+    <div class="mr-2 p-2 border-round-md drawer" id="drawer">
+        Sidebar
+    </div>
+</p-drawer>
+
+<p-dialog header="Connect" [modal]="true" [(visible)]="show" [style]="{ width: '25rem' }">
+    <span class="p-text-secondary">Available Wallets.</span>
+    
+</p-dialog>

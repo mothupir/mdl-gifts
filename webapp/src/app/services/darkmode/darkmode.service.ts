@@ -5,20 +5,42 @@ import { Injectable } from '@angular/core';
 })
 export class DarkmodeService {
 
-  isDark: boolean = false;
-
-  constructor() {
-    const element = document.querySelector('html');
-    if (element?.classList.contains('dark')) {
-      this.isDark = true;
-    } else {
-      this.isDark = false;
-    }
-  }
+  constructor() { }
 
   toggleDarkMode() {
     const element = document.querySelector('html');
     element?.classList.toggle('dark');
-    this.isDark = this.isDark ? false : true;
+    this.changeColors();
+  }
+
+  changeColors() {
+    const element = document.querySelector('html');
+    const header = document.getElementById('header');
+    const sidebar = document.getElementById('sidebar');
+    const content = document.getElementById('content');
+    const footer = document.getElementById('footer');
+
+    if (element?.classList.contains('dark')) {
+      header?.classList.add('dark-header');
+      sidebar?.classList.add('dark-sidebar');
+      content?.classList.add('dark-content');
+      footer?.classList.add('dark-footer');
+    } else {
+      header?.classList.remove('dark-header');
+      sidebar?.classList.remove('dark-sidebar');
+      content?.classList.remove('dark-content');
+      footer?.classList.remove('dark-footer');
+    }
+  }
+
+  setDrawerColor() {
+    const element = document.querySelector('html');
+    const drawer = document.getElementById('drawer');
+
+    if (element?.classList.contains('dark')) {
+      drawer?.classList.add('dark-drawer');
+    } else {
+      drawer?.classList.remove('dark-drawer');
+    }
   }
 }

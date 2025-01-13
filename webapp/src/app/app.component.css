@@ -2,10 +2,64 @@
     border-top-color: var(--p-surface-400);
 }
 
+.logo {
+    color: var(--p-surface-600);
+}
+
+.image {
+    border-radius: 50%;
+}
+
 .footer {
+    background: var(--p-surface-100);
     color: var(--p-surface-500);
 }
 
 .whatsapp {
     padding-top: 2px;
+}
+
+.header {
+    background: var(--p-surface-200);
+}
+
+.sidebar, .content, .drawer {
+    background: var(--p-surface-100);
+    min-width: 250px;
+    min-height: 80vh;
+}
+
+.content {
+    background: var(--p-surface-50);
+    width: 100%;
+}
+
+.dark-header {
+    background: var(--p-surface-800);
+}
+
+.dark-sidebar, .dark-drawer {
+    background: var(--p-surface-600);
+}
+
+.dark-content {
+    background: var(--p-surface-400);
+}
+
+.dark-footer {
+    background: var(--p-surface-900);
+}
+
+.bars {
+    display: none;
+}
+
+@media only screen and (max-width: 1020px) {
+    .sidebar {
+        display: none;
+    }
+
+    .bars {
+        display: block;
+    }
 }
