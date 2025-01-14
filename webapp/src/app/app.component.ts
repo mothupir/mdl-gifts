@@ -22,7 +22,7 @@ import { StorageService } from './services/storage/storage.service';
 })
 export class AppComponent {
   title = 'MDL Gifts';
-  connected: boolean = true;
+  connected: boolean = false;
   visible: boolean = false;
   show: boolean = false;
   dark: boolean | undefined = false;

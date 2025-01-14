@@ -36,11 +36,15 @@ export class DarkmodeService {
   setDrawerColor() {
     const element = document.querySelector('html');
     const drawer = document.getElementById('drawer');
+    const header = document.getElementById('logo');
+    console.log(header);
 
     if (element?.classList.contains('dark')) {
       drawer?.classList.add('dark-drawer');
+      header?.classList.add('dark-header');
     } else {
       drawer?.classList.remove('dark-drawer');
+      header?.classList.remove('dark-header');
     }
   }
 }

@@ -30,14 +30,14 @@
     <p-select-button (onChange)="toggleDarkMode()" [(ngModel)]="dark" [options]="modes" size="small" />
 </div>
 
-<p-drawer [(visible)]="visible" (onShow)="showSidebar()">
+<p-drawer [(visible)]="visible" closable="false" (onShow)="showSidebar()">
     <ng-template #header>
-        <div class="flex gap-2 logo">
+        <div class="flex gap-2 drawer-logo" id="logo">
             <img src="logo.png" class="image" height="30" />
             <div class="mt-2 font-bold">MDL Gifts</div>
         </div>
     </ng-template>
-    <div class="mr-2 p-2 border-round-md drawer" id="drawer">
+    <div class="border-round-md p-2 drawer" id="drawer">
         Sidebar
     </div>
 </p-drawer>
