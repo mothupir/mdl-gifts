@@ -37,7 +37,6 @@ export class DarkmodeService {
     const element = document.querySelector('html');
     const drawer = document.getElementById('drawer');
     const header = document.getElementById('logo');
-    console.log(header);
 
     if (element?.classList.contains('dark')) {
       drawer?.classList.add('dark-drawer');

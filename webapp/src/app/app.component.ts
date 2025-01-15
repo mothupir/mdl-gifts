@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterOutlet, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -11,10 +11,14 @@ import { DialogModule } from 'primeng/dialog';
 import { DarkmodeService } from './services/darkmode/darkmode.service';
 import { StorageService } from './services/storage/storage.service';
 
+import { MetaMaskSDK } from '@metamask/sdk';
+import { WalletService } from './services/wallet/wallet.service';
+import { SpinnerService } from './services/spinner/spinner.service';
+
 @Component({
   selector: 'app-root',
   imports: [
-    RouterOutlet, CommonModule, FormsModule, 
+    RouterOutlet, CommonModule, FormsModule,
     ButtonModule, SelectButtonModule, DrawerModule, DialogModule
   ],
   templateUrl: './app.component.html',
@@ -22,7 +26,7 @@ import { StorageService } from './services/storage/storage.service';
 })
 export class AppComponent {
   title = 'MDL Gifts';
-  connected: boolean = false;
+  connected: boolean | undefined = true;
   visible: boolean = false;
   show: boolean = false;
   dark: boolean | undefined = false;
@@ -31,14 +35,16 @@ export class AppComponent {
     { label: 'Light', value: false },
     { label: 'Dark', value: true }
   ];
-  wallets: any[] = [
-    { label: 'MetaMask' },
-    { label: 'Trust Wallet' }
-  ];
-  selectedWallet = null;
 
-  constructor(private darkModeService: DarkmodeService, private storageService: StorageService) {
-    
+  constructor(
+    private darkModeService: DarkmodeService,
+    private storageService: StorageService,
+    private walletService: WalletService,
+    private spinnerService: SpinnerService,
+    private router: Router
+  ) {
+    this.walletService.connected();
+    this.connected = sessionStorage.getItem('connected') == '1';
   }
 
   ngOnInit() {
@@ -49,20 +55,25 @@ export class AppComponent {
     this.year = new Date().getFullYear();
   }
 
-  selectWallet(wallet: any) {
-    this.selectedWallet = wallet;
-  }
-
-  showDialog() {
-    this.show = true;
+  async showDialog() {
+    this.signIn();
   }
 
   showSidebar() {
     this.darkModeService.setDrawerColor();
   }
 
-  toggleSignIn() {
-    this.connected = this.connected == false;
+  async signIn() {
+    await this.walletService.connect().then(() => {
+      this.connected = this.walletService.connected();
+    }).catch((e) => {
+      console.log('Error:', e);
+    });
+  }
+
+  signOut() {
+    this.walletService.disconnect();
+    this.connected = sessionStorage.getItem('connected') == '1';
   }
 
   toggleDarkMode() {
@@ -73,5 +84,9 @@ export class AppComponent {
 
   getBoolValue(value: any) {
     return value?.toLowerCase() == 'true' ;
+  }
+
+  navigateToHome() {
+    this.router.navigateByUrl('dashboard');
   }
 }

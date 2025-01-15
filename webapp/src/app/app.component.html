@@ -1,12 +1,12 @@
 <div class="flex flex-column wrapper">
     <div class="flex justify-content-between mb-2 p-2 border-round-md header" id="header">
         <div class="flex gap-2 logo">
-            <img src="logo.png" class="image" height="30" />
-            <div class="mt-2 font-bold">MDL Gifts</div>
+            <img (click)="navigateToHome()" src="logo.png" class="image" height="30" />
+            <div (click)="navigateToHome()" class="mt-2 font-bold">MDL Gifts</div>
         </div>
         <div class="flex gap-1">
             <p-button *ngIf="!connected" type="button" (onClick)="showDialog()" label="Sign In" icon="pi pi-sign-in" iconPos="right" size="small" />
-            <p-button *ngIf="connected" (onClick)="toggleSignIn()" label="Sign Out" text severity="danger" icon="pi pi-sign-out" iconPos="right" size="small" />
+            <p-button *ngIf="connected" (onClick)="signOut()" label="Sign Out" text severity="danger" icon="pi pi-sign-out" iconPos="right" size="small" />
             <p-button class="bars" (onClick)="visible = true" icon="pi pi-bars" size="small" severity="secondary" text [style]="{'padding': '7px'}" />
         </div>
     </div>
@@ -15,6 +15,10 @@
             Sidebar
         </div>
         <div class="flex flex-column border-round-md p-2 content" id="content">
+            <p-button label="Check" />
+            <div class="spinner" id="spinner">
+                <span class="loader"></span>
+            </div>
             <router-outlet />
         </div>
     </div>
@@ -44,5 +48,4 @@
 
 <p-dialog header="Connect" [modal]="true" [(visible)]="show" [style]="{ width: '25rem' }">
     <span class="p-text-secondary">Available Wallets.</span>
-    
 </p-dialog>
