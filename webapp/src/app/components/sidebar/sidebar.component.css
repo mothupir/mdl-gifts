@@ -1,0 +1,30 @@
+.sidebar {
+    background: var(--p-surface-100);
+    min-width: 300px;
+    min-height: 80vh;
+}
+
+.dark-sidebar {
+    background: var(--p-surface-600);
+}
+
+.sidebar div {
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    background: var(--p-surface-200);
+    text-align: center;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.sidebar div:hover {
+    background: var(--p-surface-300);
+}
+
+.sidebar div:active {
+    background: var(--p-surface-400);
+}
+
+.active {
+    background: var(--p-surface-300);
+}

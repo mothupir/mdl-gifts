@@ -3,7 +3,7 @@
     min-height: 180px;
     background: var(--p-surface-200);
     box-shadow: 1px 1px 5px var(--p-surface-400);
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     overflow: hidden;
 }
 
@@ -34,4 +34,8 @@
     padding: 0.25rem;
     background: var(--p-surface-400);
     height: fit-content;
+}
+
+.value span {
+    padding-top: 1px;
 }

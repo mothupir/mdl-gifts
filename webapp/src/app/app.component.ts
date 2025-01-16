@@ -14,13 +14,15 @@ import { StorageService } from './services/storage/storage.service';
 import { MetaMaskSDK } from '@metamask/sdk';
 import { WalletService } from './services/wallet/wallet.service';
 import { SpinnerService } from './services/spinner/spinner.service';
+import { SidebarComponent } from "./components/sidebar/sidebar.component";
 
 @Component({
   selector: 'app-root',
   imports: [
     RouterOutlet, CommonModule, FormsModule,
-    ButtonModule, SelectButtonModule, DrawerModule, DialogModule
-  ],
+    ButtonModule, SelectButtonModule, DrawerModule, DialogModule,
+    SidebarComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -91,6 +93,6 @@ export class AppComponent {
   }
 
   navigateToHome() {
-    this.router.navigateByUrl('dashboard');
+    this.router.navigateByUrl('home');
   }
 }
