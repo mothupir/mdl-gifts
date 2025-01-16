@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
+
+  constructor(private router: Router) {}
 
   onClick(id: string) {
     const items = document.getElementsByClassName('item');
@@ -17,5 +20,7 @@ export class SidebarComponent {
 
     document.getElementById(id)?.classList.add('active');
     console.log("Clicked");
+
+    this.router.navigateByUrl(id);
   }
 }
