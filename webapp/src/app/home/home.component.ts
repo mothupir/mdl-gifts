@@ -8,7 +8,7 @@ import { GiftcardComponent } from '../components/giftcard/giftcard.component';
 
 @Component({
   selector: 'app-home',
-  imports: [Button, ScrollPanel, CommonModule, GiftcardComponent],
+  imports: [ScrollPanel, CommonModule, GiftcardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

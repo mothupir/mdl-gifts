@@ -8,7 +8,7 @@ import { GiftcardComponent } from '../components/giftcard/giftcard.component';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [Button, ScrollPanel, CommonModule, GiftcardComponent],
+  imports: [CommonModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
