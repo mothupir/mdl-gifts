@@ -32,10 +32,14 @@
 .value {
     margin: 0.5rem;
     padding: 0.25rem;
-    background: var(--p-surface-400);
+    background: var(--p-surface-50);
+    border-radius: 0.25rem;
     height: fit-content;
+
 }
 
 .value span {
-    padding-top: 1px;
+    font-style: italic;
+    padding-top: 0.25rem;
+    padding-right: 0.25rem;
 }
