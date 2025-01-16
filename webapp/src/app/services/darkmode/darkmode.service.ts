@@ -14,23 +14,31 @@ export class DarkmodeService {
   }
 
   changeColors() {
-    const element = document.querySelector('html');
+    const html = document.querySelector('html');
     const header = document.getElementById('header');
     const sidebar = document.getElementById('sidebar');
-    const content = document.getElementById('content');
     const footer = document.getElementById('footer');
+    const cards = document.getElementsByClassName('card');
 
-    if (element?.classList.contains('dark')) {
-      header?.classList.add('dark-header');
-      sidebar?.classList.add('dark-sidebar');
-      content?.classList.add('dark-content');
-      footer?.classList.add('dark-footer');
-    } else {
-      header?.classList.remove('dark-header');
-      sidebar?.classList.remove('dark-sidebar');
-      content?.classList.remove('dark-content');
-      footer?.classList.remove('dark-footer');
-    }
+    setTimeout(() => {
+      if (html?.classList.contains('dark')) {
+        header?.classList.add('dark-header');
+        sidebar?.classList.add('dark-sidebar');
+        footer?.classList.add('dark-footer');
+        for (let card of cards) {
+          card?.classList.add('dark-card');
+        }
+        console.log(cards);
+      } else {
+        header?.classList.remove('dark-header');
+        sidebar?.classList.remove('dark-sidebar');
+        footer?.classList.remove('dark-footer');
+        for (let card of cards) {
+          card?.classList.remove('dark-card');
+        }
+      }
+    }, 100);
+    
   }
 
   setDrawerColor() {

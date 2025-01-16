@@ -1,0 +1,37 @@
+.card {
+    min-width: 250px;
+    min-height: 180px;
+    background: var(--p-surface-200);
+    box-shadow: 1px 1px 5px var(--p-surface-400);
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+.dark-card {
+    background: var(--p-surface-600);
+}
+
+.ribbon {
+    text-align: center;
+    width: 120px;
+    height: 25px;
+    margin-top: 15px;
+    margin-left: -23px;
+    padding-top: 3px;
+    background: gold;
+    transform: rotate(-40deg);
+    border: 1px solid;
+}
+
+.bottom {
+    position: relative;
+    margin-top: 75px;
+    background: var(--p-surface-0);
+}
+
+.value {
+    margin: 0.5rem;
+    padding: 0.25rem;
+    background: var(--p-surface-400);
+    height: fit-content;
+}

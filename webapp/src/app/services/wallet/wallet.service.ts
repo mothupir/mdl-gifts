@@ -31,7 +31,6 @@ export class WalletService {
   }
 
   disconnect() {
-    console.log("Disconnected");
     sessionStorage.removeItem('connected');
     this.sdk?.terminate();
   }
@@ -49,7 +48,6 @@ export class WalletService {
   }
 
   registerEvents() {
-    console.log("rpovider:", this.provider);
-    this.provider?.on('accountsChanged', () => this.disconnect());
+    this.provider?.on('disconnect', () => this.disconnect());
   }
 }

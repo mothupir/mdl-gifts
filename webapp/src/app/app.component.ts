@@ -43,16 +43,21 @@ export class AppComponent {
     private spinnerService: SpinnerService,
     private router: Router
   ) {
-    this.walletService.connected();
-    this.connected = sessionStorage.getItem('connected') == '1';
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.dark = this.getBoolValue(this.storageService.getItem('dark'));
     if (this.dark) {
       this.toggleDarkMode();
     }
+
     this.year = new Date().getFullYear();
+
+    this.walletService.connected();
+    this.connected = sessionStorage.getItem('connected') == '1';
+    if (this.connected) {
+      await this.signIn();
+    }
   }
 
   async showDialog() {
@@ -78,7 +83,6 @@ export class AppComponent {
 
   toggleDarkMode() {
     this.darkModeService.toggleDarkMode();
-    this.dark = document.querySelector('html')?.classList.contains('dark');
     this.storageService.setItem('dark', this.dark);
   }
 

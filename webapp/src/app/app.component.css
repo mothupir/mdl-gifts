@@ -25,6 +25,11 @@
 
 .whatsapp {
     padding-top: 2px;
+    cursor: pointer;
+}
+
+.whatsapp:hover {
+    border-bottom: 1px solid var(--p-surface-500);
 }
 
 .header {
@@ -43,7 +48,7 @@
 
 .content {
     position: relative;
-    background: var(--p-surface-50);
+    background: none;
     width: 100%;
 }
 
@@ -53,10 +58,6 @@
 
 .dark-sidebar, .dark-drawer {
     background: var(--p-surface-600);
-}
-
-.dark-content {
-    background: var(--p-surface-400);
 }
 
 .dark-footer {
@@ -78,6 +79,7 @@
     padding-left: calc(50% - 36px);
     padding-top: calc(50% - 36px);
     background: rgba(128, 0, 128, 0.01);
+    z-index: 500;
 }
 
 .loader {
