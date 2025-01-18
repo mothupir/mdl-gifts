@@ -1,5 +1,5 @@
 <div class="flex flex-column gap-1 mr-2 p-2 border-round-md sidebar">
-    <app-sidebar-item id="home" link="home" icon="pi pi-home" label="Home" [active]="true" />
-    <app-sidebar-item id="account" link="account" icon="pi pi-user" label="Account" />
-    <app-sidebar-item id="dashboard" link="dashboard" icon="pi pi-desktop" label="Dashboard" />
+    <app-sidebar-item id="home" link="home" icon="pi pi-home" label="Home" [active]="true" (clicked)="onClick($event)" />
+    <app-sidebar-item id="account" link="account" icon="pi pi-user" label="Account" (clicked)="onClick($event)" />
+    <app-sidebar-item id="dashboard" link="dashboard" icon="pi pi-desktop" label="Dashboard" (clicked)="onClick($event)" />
 </div>

@@ -53,7 +53,6 @@ export class DarkmodeService {
     const sidebars = document.getElementsByClassName('sidebar');
     const header = document.getElementById('logo');
     const items = document.getElementsByClassName('sidebar-item');
-    console.log('Items:', items);
 
     if (element?.classList.contains('dark')) {
       header?.classList.add('dark-header');

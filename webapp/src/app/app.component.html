@@ -38,7 +38,7 @@
             <div class="mt-2 font-bold">MDL Gifts</div>
         </div>
     </ng-template>
-    <app-sidebar />
+    <app-sidebar (clicked)="hideSidebar($event)" />
 </p-drawer>
 
 <p-dialog header="Connect" [modal]="true" [(visible)]="show" [style]="{ width: '25rem' }">

@@ -70,6 +70,10 @@ export class AppComponent {
     this.darkModeService.setDrawerColor();
   }
 
+  hideSidebar(visible: any) {
+    this.visible = visible;
+  }
+
   async signIn() {
     await this.walletService.connect().then(() => {
       this.connected = this.walletService.connected();

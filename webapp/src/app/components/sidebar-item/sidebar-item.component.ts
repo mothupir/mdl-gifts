@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,6 +15,8 @@ export class SidebarItemComponent {
   @Input() active: boolean = false;
   @Input() disabled: boolean = false;
 
+  @Output() clicked = new EventEmitter<boolean>();
+
   constructor(private router: Router) {}
 
   onClick(id: string) {
@@ -25,7 +27,7 @@ export class SidebarItemComponent {
     }
 
     document.getElementById(id)?.classList.add('active');
-    console.log("Clicked:", document.getElementById(id));
+    this.clicked.emit(false);
 
     this.router.navigateByUrl(id);
   }
