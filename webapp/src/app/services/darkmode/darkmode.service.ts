@@ -32,7 +32,6 @@ export class DarkmodeService {
         for (let card of cards) {
           card?.classList.add('dark-card');
         }
-        console.log(cards);
       } else {
         header?.classList.remove('dark-header');
         footer?.classList.remove('dark-footer');
@@ -53,6 +52,8 @@ export class DarkmodeService {
     const element = document.querySelector('html');
     const sidebars = document.getElementsByClassName('sidebar');
     const header = document.getElementById('logo');
+    const items = document.getElementsByClassName('sidebar-item');
+    console.log('Items:', items);
 
     if (element?.classList.contains('dark')) {
       header?.classList.add('dark-header');
@@ -60,10 +61,20 @@ export class DarkmodeService {
       for (let sidebar of sidebars) {
         sidebar?.classList.add('dark-sidebar');
       }
+
+      for (let item of items) {
+        item?.classList.add('dark-sidebar-item');
+      }
+
     } else {
       header?.classList.remove('dark-header');
+
       for (let sidebar of sidebars) {
         sidebar?.classList.remove('dark-sidebar');
+      }
+
+      for (let item of items) {
+        item?.classList.remove('dark-sidebar-item');
       }
     }
   }

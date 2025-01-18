@@ -1,0 +1,32 @@
+.sidebar-item {
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    background: var(--p-surface-200);
+    text-align: center;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.dark-sidebar-item {
+    background: var(--p-surface-500);
+}
+
+.sidebar-item:hover {
+    background: var(--p-surface-300);
+}
+
+.dark-sidebar-item:hover {
+    background: var(--p-surface-700);
+}
+
+.dark-sidebar-item:active {
+    background: var(--p-surface-400);
+}
+
+.sidebar-item:active {
+    background: var(--p-surface-800);
+}
+
+.active {
+    background: var(--p-surface-300);
+}

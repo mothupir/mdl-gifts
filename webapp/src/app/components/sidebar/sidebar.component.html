@@ -1,4 +1,5 @@
 <div class="flex flex-column gap-1 mr-2 p-2 border-round-md sidebar">
-    <div (click)="onClick('account')" class="item active" id="account">Account</div>
-    <div (click)="onClick('dashboard')" class="item" id="dashboard">Dashoard</div>
+    <app-sidebar-item id="home" link="home" icon="pi pi-home" label="Home" [active]="true" />
+    <app-sidebar-item id="account" link="account" icon="pi pi-user" label="Account" />
+    <app-sidebar-item id="dashboard" link="dashboard" icon="pi pi-desktop" label="Dashboard" />
 </div>
