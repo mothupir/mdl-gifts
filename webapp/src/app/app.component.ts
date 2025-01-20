@@ -71,7 +71,9 @@ export class AppComponent {
   }
 
   hideSidebar(visible: any) {
-    this.visible = visible;
+    setTimeout(() => {
+      this.visible = visible;
+    }, 300)
   }
 
   async signIn() {
